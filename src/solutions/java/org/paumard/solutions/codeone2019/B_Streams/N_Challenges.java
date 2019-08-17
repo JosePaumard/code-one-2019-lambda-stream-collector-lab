@@ -23,11 +23,14 @@ import org.paumard.codeone2019.B_Streams.model.Person;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Serializable;
+import java.lang.reflect.Modifier;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -405,6 +408,40 @@ public class N_Challenges {
                         .collect(Collectors.joining("\n"));
 
         assertThat(result).isEqualTo(expectedResult);
+    }
+
+    /**
+     * Create a function that takes a class as a parameter and returns a map of Boolean and Set&lt;Class>.
+     * <p/>
+     * The key true is associated to all the interfaces implemented by this class.
+     * <p/>
+     * The key false is associated to all the super classes of this class.
+     * <p/>
+     * Use the class <code>ArrayList</code> as an example to test your function.
+     */
+    @Test
+    public void p_challenge10() {
+
+        Map<Boolean, Set<Class<?>>> expectedResultForArrayList =
+                Map.of(
+                        false, Set.of(ArrayList.class, AbstractList.class, AbstractCollection.class, Object.class),
+                        true, Set.of(List.class, RandomAccess.class, Cloneable.class, Serializable.class, Collection.class)
+                );
+
+        UnaryOperator<Class<?>> superclass = Class::getSuperclass;
+        Function<Class<?>, Stream<Class<?>>> flatMapper =
+                clazz -> Stream.of(Stream.of(clazz), Arrays.stream(clazz.getInterfaces())).flatMap(Function.identity());
+        Collector<Class<?>, ?, Map<Boolean, Set<Class<?>>>> collector =
+                Collectors.partitioningBy(clazz -> Modifier.isInterface(clazz.getModifiers()), Collectors.toSet());
+
+        Function<Class<?>, Map<Boolean, Set<Class<?>>>> function =
+                clazz -> Stream.iterate(clazz, Objects::nonNull, superclass)
+                        .flatMap(flatMapper)
+                        .collect(collector);
+
+        Map<Boolean, Set<Class<?>>> result = function.apply(ArrayList.class);
+
+        assertThat(result).isEqualTo(expectedResultForArrayList);
     }
 
 // ========================================================
