@@ -21,6 +21,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.*;
+import java.util.AbstractMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -119,10 +120,19 @@ public class ShakespeareChallenge {
         Function<String, Map<String, Long>> numberOfLettersUsed = null; // TODO
 
         assertThat(numberOfLettersUsed.apply("hello"))
-                .containsOnly(Map.entry("h", 1L), Map.entry("e", 1L), Map.entry("l", 2L), Map.entry("o", 1L));
+                .containsOnly(
+                        new AbstractMap.SimpleEntry<>("h", 1L),
+                        new AbstractMap.SimpleEntry<>("e", 1L),
+                        new AbstractMap.SimpleEntry<>("l", 2L),
+                        new AbstractMap.SimpleEntry<>("o", 1L));
         assertThat(numberOfLettersUsed.apply("whizzing"))
-                .containsOnly(Map.entry("w", 1L), Map.entry("h", 1L), Map.entry("i", 2L),
-                        Map.entry("z", 2L), Map.entry("n", 1L), Map.entry("g", 1L));
+                .containsOnly(
+                        new AbstractMap.SimpleEntry<>("w", 1L),
+                        new AbstractMap.SimpleEntry<>("h", 1L),
+                        new AbstractMap.SimpleEntry<>("i", 2L),
+                        new AbstractMap.SimpleEntry<>("z", 2L),
+                        new AbstractMap.SimpleEntry<>("n", 1L),
+                        new AbstractMap.SimpleEntry<>("g", 1L));
     }
 
     /**

@@ -184,7 +184,7 @@ public class K_SimpleStreams {
 
         // Starting with Java 11 you can write the following
         Function<String, List<String>> wordToLetters =
-                word -> word.chars().filter(Character::isLetter).mapToObj(Character::toString)
+                word -> word.chars().filter(Character::isLetter).mapToObj(c -> (char)c).map(Object::toString)
                         .map(String::toLowerCase).distinct().sorted().collect(Collectors.toList());
 
         assertThat(wordToLetters.apply("Hello world")).containsExactly("d", "e", "h", "l", "o", "r", "w");

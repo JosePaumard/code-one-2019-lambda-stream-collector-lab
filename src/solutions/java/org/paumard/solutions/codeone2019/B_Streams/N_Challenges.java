@@ -208,7 +208,7 @@ public class N_Challenges {
 
         Map<Integer, Set<String>> result =
                 input.entrySet().stream()
-                        .flatMap(entry -> entry.getValue().stream().map(value -> Map.entry(value, entry.getKey())))
+                        .flatMap(entry -> entry.getValue().stream().map(value -> new AbstractMap.SimpleEntry<>(value, entry.getKey())))
                         .collect(Collectors.groupingBy(
                                 Map.Entry::getKey,
                                 Collectors.mapping(Map.Entry::getValue, Collectors.toSet())

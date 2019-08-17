@@ -1,5 +1,7 @@
 ### Oracle Code One 2019  Lambda Stream Collector Lab
 
+This is the Java 8 branch. Use it with a version 8 of the JDK. 
+
 This is a lab created for Oracle Code One 2019. It is a Maven project, with the following content in the `test/java` folder:
 
 1. A `A_Lambdas` package

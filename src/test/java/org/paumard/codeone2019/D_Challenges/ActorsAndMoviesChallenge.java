@@ -143,26 +143,12 @@ public class ActorsAndMoviesChallenge {
      * A little harder: try to find the actor that played in the greatest number of movies
      * during a year.
      * <p/>
-     * There are several ways to use the Stream API to get the result. The most elegant is to use a Collector.
-     * Try to solve the actorsAndMovies06 challenge using a single collector. You will have to use several
-     * methods from the Collectors factory class, and use collectingAndThen().
-     * <p/>
-     * Once you have this collector, you can use it as a downstream collector of another, well-known
-     * collector
-     * <p/>
-     * Using a collector is possible only with the Collectors methods added in Java 9.
+     * This question is for Java 9 and later. You are on the Java 8 branch, so if you want to work on it,
+     * you should checkout another branch of this lab.
      */
     @Test
     @Ignore
     public void actorsAndMovies07() {
-
-        int year = 0; // TODO
-        Actor mostSeenActor = null; // TODO
-        long numberOfMoviePlayed = 0L;
-
-        assertThat(year).isEqualTo(1999);
-        assertThat(mostSeenActor).isEqualTo(new Actor("Hawn", "Phil"));
-        assertThat(numberOfMoviePlayed).isEqualTo(24);
     }
 
     /**
@@ -214,20 +200,13 @@ public class ActorsAndMoviesChallenge {
     /**
      * The (real) last step is to find the two actors that played the most together during a year. The approach is the
      * same as previously: try to create a collector and use it as a downstream collector.
+     * <p/>
+     * This question is for Java 9 and later. You are on the Java 8 branch, so if you want to work on it,
+     * you should checkout another branch of this lab.
      */
     @Test
     @Ignore
     public void actorsAndMovies10() {
-
-        int year = 0; // TODO
-        long number = 0L; // TODO
-        Actor actor1 = null; // TODO
-        Actor actor2 = null; // TODO
-
-        assertThat(year).isEqualTo(1995);
-        assertThat(number).isEqualTo(5L);
-        assertThat(actor1).isEqualTo(new Actor("Ingham", "Barrie"));
-        assertThat(actor2).isEqualTo(new Actor("Webster", "Derek"));
     }
 
 

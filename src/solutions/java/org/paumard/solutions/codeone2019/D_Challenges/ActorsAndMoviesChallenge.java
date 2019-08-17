@@ -25,10 +25,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Comparator;
-import java.util.IntSummaryStatistics;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collector;
@@ -159,54 +156,6 @@ public class ActorsAndMoviesChallenge {
     }
 
     /**
-     * A little harder: try to find the actor that played in the greatest number of movies
-     * during a year.
-     * <p/>
-     * There are several ways to use the Stream API to get the result. The most elegant is to use a Collector.
-     * Try to solve the actorsAndMovies06 challenge using a single collector. You will have to use several
-     * methods from the Collectors factory class, and use collectingAndThen().
-     * <p/>
-     * Once you have this collector, you can use it as a downstream collector of another, well-known
-     * collector
-     * <p/>
-     * Using a collector is possible only with the Collectors methods added in Java 9.
-     */
-    @Test
-    public void actorsAndMovies07() {
-
-        Collector<Movie, ?, Map.Entry<Actor, Long>> collector =
-                Collectors.collectingAndThen(
-                        Collectors.flatMapping(
-                                movie -> movie.actors().stream(),
-                                Collectors.groupingBy(
-                                        Function.identity(), Collectors.counting()
-                                )
-                        ),
-                        map -> map.entrySet().stream()
-                                .max(Map.Entry.comparingByValue())
-                                .get());
-
-        Map.Entry<Integer, Map.Entry<Actor, Long>> entry =
-                movies.stream()
-                        .collect(
-                                Collectors.groupingBy(
-                                        Movie::releaseYear, collector
-                                )
-                        )
-                        .entrySet().stream()
-                        .max(Map.Entry.comparingByValue(Map.Entry.comparingByValue()))
-                        .get();
-
-        int year = entry.getKey();
-        Actor mostSeenActor = entry.getValue().getKey();
-        long numberOfMoviePlayed = entry.getValue().getValue();
-
-        assertThat(year).isEqualTo(1999);
-        assertThat(mostSeenActor).isEqualTo(new Actor("Hawn", "Phil"));
-        assertThat(numberOfMoviePlayed).isEqualTo(24);
-    }
-
-    /**
      * Create now a stream of Map.Entry&lt;Actor, Actor> with all the actors that played together. Since we want
      * unique pairs, you should make sure that in a pair, the actors are ordered alphabetically. That is, the following
      * stream:
@@ -229,7 +178,7 @@ public class ActorsAndMoviesChallenge {
         BiFunction<Movie, Actor, Stream<Map.Entry<Actor, Actor>>> mapper =
                 (movie, actor1) -> movie.actors().stream()
                         .filter(actor2 -> cmpActor.compare(actor1, actor2) < 0)
-                        .map(actor2 -> Map.entry(actor1, actor2));
+                        .map(actor2 -> new AbstractMap.SimpleEntry<>(actor1, actor2));
 
         Function<Movie, Stream<Map.Entry<Actor, Actor>>> movieToActors =
                 movie -> movie.actors().stream()
@@ -265,7 +214,7 @@ public class ActorsAndMoviesChallenge {
         BiFunction<Movie, Actor, Stream<Map.Entry<Actor, Actor>>> mapper =
                 (movie, actor1) -> movie.actors().stream()
                         .filter(actor2 -> cmpActor.compare(actor1, actor2) < 0)
-                        .map(actor2 -> Map.entry(actor1, actor2));
+                        .map(actor2 -> new AbstractMap.SimpleEntry<>(actor1, actor2));
 
         Function<Movie, Stream<Map.Entry<Actor, Actor>>> movieToActors =
                 movie -> movie.actors().stream()
@@ -288,57 +237,6 @@ public class ActorsAndMoviesChallenge {
         assertThat(number).isEqualTo(15L);
         assertThat(actor1).isEqualTo(new Actor("Howard", "Clint"));
         assertThat(actor2).isEqualTo(new Actor("Howard", "Rance"));
-    }
-
-    /**
-     * The (real) last step is to find the two actors that played the most together during a year. The approach is the
-     * same as previously: try to create a collector and use it as a downstream collector.
-     */
-    @Test
-    public void actorsAndMovies10() {
-
-        Comparator<Actor> cmpActor = Comparator.comparing(Actor::lastName).thenComparing(Actor::firstName);
-
-        BiFunction<Movie, Actor, Stream<Map.Entry<Actor, Actor>>> mapper =
-                (movie, actor1) -> movie.actors().stream()
-                        .filter(actor2 -> cmpActor.compare(actor1, actor2) < 0)
-                        .map(actor2 -> Map.entry(actor1, actor2));
-
-        Function<Movie, Stream<Map.Entry<Actor, Actor>>> movieToActors =
-                movie -> movie.actors().stream()
-                        .flatMap(actor -> mapper.apply(movie, actor));
-
-        Collector<Movie, ?, Map.Entry<Map.Entry<Actor, Actor>, Long>> collector =
-                Collectors.collectingAndThen(
-                        Collectors.flatMapping(
-                                movieToActors,
-                                Collectors.groupingBy(
-                                        Function.identity(), Collectors.counting()
-                                )
-                        ),
-                        map -> map.entrySet().stream()
-                                .max(Map.Entry.comparingByValue())
-                                .get()
-                );
-
-        Map.Entry<Integer, Map.Entry<Map.Entry<Actor, Actor>, Long>> entry =
-                movies.stream()
-                        .collect(Collectors.groupingBy(
-                                Movie::releaseYear, collector
-                        ))
-                        .entrySet().stream()
-                        .max(Map.Entry.comparingByValue(Map.Entry.comparingByValue()))
-                        .get();
-
-        int year = entry.getKey();
-        long number = entry.getValue().getValue();
-        Actor actor1 = entry.getValue().getKey().getKey();
-        Actor actor2 = entry.getValue().getKey().getValue();
-
-        assertThat(year).isEqualTo(1995);
-        assertThat(number).isEqualTo(5L);
-        assertThat(actor1).isEqualTo(new Actor("Ingham", "Barrie"));
-        assertThat(actor2).isEqualTo(new Actor("Webster", "Derek"));
     }
 
 
