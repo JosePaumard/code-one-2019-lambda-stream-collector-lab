@@ -23,10 +23,12 @@ import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -323,6 +325,32 @@ public class N_Challenges {
         String result = null; // TODO
 
         assertThat(result).isEqualTo(expectedResult);
+    }
+
+    /**
+     * Create a function that takes a class as a parameter and returns a map of Boolean and Set&lt;Class>.
+     * <p/>
+     * The key true is associated to all the interfaces implemented by this class.
+     * <p/>
+     * The key false is associated to all the super classes of this class.
+     * <p/>
+     * Use the class <code>ArrayList</code> as an example to test your function.
+     */
+    @Test
+    @Ignore
+    public void p_challenge10() {
+
+        Map<Boolean, Set<Class<?>>> expectedResultForArrayList =
+                Map.of(
+                        false, Set.of(ArrayList.class, AbstractList.class, AbstractCollection.class, Object.class),
+                        true, Set.of(List.class, RandomAccess.class, Cloneable.class, Serializable.class, Collection.class)
+                );
+
+        Function<Class<?>, Map<Boolean, Set<Class<?>>>> function = null;
+
+        Map<Boolean, Set<Class<?>>> result = function.apply(ArrayList.class);
+
+        assertThat(result).isEqualTo(expectedResultForArrayList);
     }
 
 // ========================================================
