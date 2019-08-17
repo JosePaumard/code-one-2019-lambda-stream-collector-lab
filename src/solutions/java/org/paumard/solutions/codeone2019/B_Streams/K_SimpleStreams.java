@@ -177,12 +177,6 @@ public class K_SimpleStreams {
     @Test
     public void k_simpleStream10() {
 
-        // This is the Java 8 solution
-//        Function<String, List<String>> wordToLetters =
-//                word -> word.chars().filter(Character::isLetter).mapToObj(letter -> (char)letter).map(String::valueOf)
-//                        .map(String::toLowerCase).distinct().sorted().collect(Collectors.toList());
-
-        // Starting with Java 11 you can write the following
         Function<String, List<String>> wordToLetters =
                 word -> word.chars().filter(Character::isLetter).mapToObj(c -> (char)c).map(Object::toString)
                         .map(String::toLowerCase).distinct().sorted().collect(Collectors.toList());
