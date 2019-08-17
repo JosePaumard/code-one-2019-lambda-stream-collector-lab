@@ -128,7 +128,7 @@ public class ShakespeareChallenge {
     public void shakespeare05() {
 
         Function<String, Map<String, Long>> numberOfLettersUsed =
-                word -> word.chars().mapToObj(Character::toString)
+                word -> word.chars().mapToObj(c -> (char)c).map(Object::toString)
                         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         assertThat(numberOfLettersUsed.apply("hello"))
@@ -147,7 +147,7 @@ public class ShakespeareChallenge {
     public void shakespeare06() {
 
         Function<String, Map<String, Long>> numberOfLettersUsed =
-                word -> word.chars().mapToObj(Character::toString)
+                word -> word.chars().mapToObj(c -> (char)c).map(Object::toString)
                         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         Function<String, Long> numberOfBlanks =
@@ -171,7 +171,7 @@ public class ShakespeareChallenge {
     public void shakespeare07() {
 
         Function<String, Map<String, Long>> numberOfLettersUsed =
-                word -> word.chars().mapToObj(Character::toString)
+                word -> word.chars().mapToObj(c -> (char)c).map(Object::toString)
                         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         Function<String, Integer> scoreWithBlank =
@@ -194,7 +194,7 @@ public class ShakespeareChallenge {
     public void shakespeare08() {
 
         Function<String, Map<String, Long>> numberOfLettersUsed =
-                word -> word.chars().mapToObj(Character::toString)
+                word -> word.chars().mapToObj(c -> (char)c).map(Object::toString)
                         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         Function<String, Long> numberOfBlanks =
@@ -238,7 +238,7 @@ public class ShakespeareChallenge {
 
 
         Function<String, Map<String, Long>> numberOfLettersUsed =
-                word -> word.chars().mapToObj(Character::toString)
+                word -> word.chars().mapToObj(c -> (char)c).map(Object::toString)
                         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         Function<String, Long> numberOfBlanks =
@@ -288,7 +288,7 @@ public class ShakespeareChallenge {
     public void shakespeare10() {
 
         Function<String, Map<String, Long>> numberOfLettersUsed =
-                word -> word.chars().mapToObj(Character::toString)
+                word -> word.chars().mapToObj(c -> (char)c).map(Object::toString)
                         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
         Function<String, Long> numberOfBlanks =
@@ -308,7 +308,7 @@ public class ShakespeareChallenge {
                         .sum();
 
         Function<String, Stream<String>> letters =
-                word -> word.chars().mapToObj(Character::toString);
+                word -> word.chars().mapToObj(c -> (char)c).map(Object::toString);
 
         Function<String, Long> limit =
                 word -> Long.max((long) word.length() - 4L, 0L);
