@@ -1,0 +1,21 @@
+# name age
+Mary 23
+James 28
+Patricia 23
+John 26
+Jennifer 27
+Robert 26
+Linda 25
+Michael 27
+Elizabeth 28
+William 24
+Barbara 23
+David 27
+Susan 23
+Richard 25
+Jessica 28
+Joseph 27
+Sarah 24
+Thomas 24
+Margaret 26
+Charles 27
