@@ -157,7 +157,7 @@ public class P_HarderCollectors {
     public void o_harderCollector04() {
 
         Function<String, Stream<String>> wordToLetters =
-                word -> word.chars().filter(Character::isLetter).mapToObj(Character::toString);
+                word -> word.chars().filter(Character::isLetter).mapToObj(c -> (char)c).map(Object::toString);
 
         String leastUsedLetter =
                 reader.lines()
@@ -187,7 +187,7 @@ public class P_HarderCollectors {
     public void o_harderCollector05() {
 
         Function<String, Stream<String>> wordToLetters =
-                word -> word.chars().filter(Character::isLetter).mapToObj(Character::toString);
+                word -> word.chars().filter(Character::isLetter).mapToObj(c -> (char)c).map(Object::toString);
 
 
         List<String> leastUsedLetters =

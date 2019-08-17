@@ -113,7 +113,7 @@ public class L_HarderStreams {
                 "alfa", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel");
 
         Function<String, Stream<String>> wordToLetters =
-                word -> word.chars().filter(Character::isLetter).mapToObj(Character::toString);
+                word -> word.chars().mapToObj(c -> (char)c).map(Object::toString);
 
         List<String> result = input.stream()
                 .flatMap(wordToLetters)
