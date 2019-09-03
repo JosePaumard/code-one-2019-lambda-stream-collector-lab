@@ -82,8 +82,7 @@ public class A_Suppliers {
 
     /**
      * Use the provided CircleFactory interface, that extends Supplier&lt;Circle>.
-     * Use the previous method from a_supplier04() that can create a list of three circles,
-     * and check that it does create a list of three red circles.
+     * Implement this interface so that calling getThree() creates a list of three red circles.
      */
     @Test
     public void a_supplier05() {

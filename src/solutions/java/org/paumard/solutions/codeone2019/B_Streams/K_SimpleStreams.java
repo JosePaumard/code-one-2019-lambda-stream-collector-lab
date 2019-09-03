@@ -36,7 +36,6 @@ public class K_SimpleStreams {
     /**
      * Given a list of words, create an output list that contains the elements
      * converted to upper case.
-     * Use the collect(Collectors.toList()) pattern to create the output list.
      */
     @Test
     public void k_simpleStream01() {
@@ -53,7 +52,6 @@ public class K_SimpleStreams {
     /**
      * Given a list of words, create an output list that contains
      * only the odd-length words, converted to upper case.
-     * Use the collect(Collectors.toList()) pattern to create the output list.
      */
     @Test
     public void k_simpleStream02() {
@@ -70,7 +68,6 @@ public class K_SimpleStreams {
     /**
      * Given a list of words, create an output list that contains
      * only words from 3 to 8.
-     * Use the collect(Collectors.toList()) pattern to create the output list.
      */
     @Test
     public void k_simpleStream03() {
@@ -87,7 +84,6 @@ public class K_SimpleStreams {
     /**
      * Given a list of words, create an output list that contains
      * only the first letters of all the words, without any double.
-     * Use the collect(Collectors.toList()) pattern to create the output list.
      */
     @Test
     public void k_simpleStream04() {
@@ -104,7 +100,6 @@ public class K_SimpleStreams {
     /**
      * Given a list of words, create an output list that contains
      * only the first letters of all the words, without any double, sorted in the alphabetical order.
-     * Use the collect(Collectors.toList()) pattern to create the output list.
      */
     @Test
     public void k_simpleStream05() {
@@ -135,7 +130,6 @@ public class K_SimpleStreams {
 
     /**
      * Create the following list: {"+", "+", "+", "+", "+"}.
-     * Try to use a factory method from Stream.
      */
     @Test
     public void k_simpleStream07() {
@@ -147,7 +141,6 @@ public class K_SimpleStreams {
 
     /**
      * Create the following list: {"+++", "++++", "+++++", "++++++", "+++++++"}.
-     * Try to use a factory method from Stream.
      */
     @Test
     public void k_simpleStream08() {

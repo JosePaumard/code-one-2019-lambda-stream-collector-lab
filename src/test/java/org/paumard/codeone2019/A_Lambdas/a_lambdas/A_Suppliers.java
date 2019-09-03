@@ -56,6 +56,11 @@ public class A_Suppliers {
 
         assertThat(sup.get().toString()).isEqualTo("");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You can pop up the menu over the "light bulb" icon in the left margin. This menu
+    // has an option to convert the lambda to a method reference.
+    // </editor-fold>
 
     /**
      * Write a lambda expression that returns a new Circle.
@@ -69,6 +74,10 @@ public class A_Suppliers {
 
         assertThat(sup.get().toString()).isEqualTo("Circle{color=White}");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You can write this lambda wth a method reference.
+    // </editor-fold>
 
     /**
      * Use the provided CircleFactory interface, that extends Supplier&lt;Circle>.
@@ -84,10 +93,15 @@ public class A_Suppliers {
 
         assertThat(circles).containsExactly(new Circle(), new Circle(), new Circle());
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // This default method should call the abstract method of the CircleFactory
+    // functional interface.
+    // </editor-fold>
 
     /**
      * Use the provided CircleFactory interface, that extends Supplier&lt;Circle>.
-     * Add a method to this interface that can create a list of three red circles.
+     * Implement this interface so that calling getThree() creates a list of three red circles.
      */
     @Test
     @Ignore
@@ -119,6 +133,11 @@ public class A_Suppliers {
 
         assertThat(circles).containsExactly(new Circle("White"), new Circle("White"), new Circle("White"));
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You first need to figure out the right type for Circle::new, then create the right
+    // factory method.
+    // </editor-fold>
 
     /**
      * And what about creating a factory of colored Circle in that way:
@@ -138,4 +157,8 @@ public class A_Suppliers {
 
         assertThat(circles).containsExactly(new Circle("Blue"), new Circle("Blue"), new Circle("Blue"));
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You need to use a partial application to implement the factory method.
+    // </editor-fold>
 }
