@@ -60,6 +60,10 @@ public class N_Challenges {
 
         assertThat(result).isEqualTo("tsrqponmlkjihgfedcbaabcdefghijklmnopqrst");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // Use the Stream.collect() method that takes 3 arguments. Check precisely the role of each argument.
+    // </editor-fold>
 
     /**
      * Count the total number of words and the number of distinct, lower case
@@ -115,6 +119,11 @@ public class N_Challenges {
         assertThat(totalAndDistinct.getDistinctCount()).isEqualTo(81);
         assertThat(totalAndDistinct.getTotalCount()).isEqualTo(10700);
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // Use the Stream.collect() method that takes 3 arguments.
+    // Implement the TotalAndDistinct methods to create the 3 parameters.
+    // </editor-fold>
 
 
     /**
@@ -159,6 +168,11 @@ public class N_Challenges {
                 "octopus:8", "spider:8", "squid:8", "crab:10", "lobster:10", "scorpion:10",
                 "millipede:750");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // First create a stream of the Map.Entry key / value pairs from that map.
+    // Then find the right mapping of that stream to create the final stream.
+    // </editor-fold>
 
     /**
      * Invert a "multi-map". (From an idea by Paul Sandoz)
@@ -207,6 +221,11 @@ public class N_Challenges {
         assertThat(result.get(3)).contains("b", "c", "f");
         assertThat(result.get(4)).contains("d", "e", "f");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // Use the same idea than the previous exercise to stream the map.
+    // Then regroup it as needed using the standard collectors.
+    // </editor-fold>
 
     /**
      * Select the longest words from an input stream. That is, select the words
@@ -227,9 +246,13 @@ public class N_Challenges {
                 Collector.of(null, null, null, null));
         // TODO implement a collector by replacing the nulls above
 
-
         assertThat(result).containsExactly("charlie", "foxtrot");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You can first create a helper class as the TotalAndDistinct class and use its
+    // methods to create the argument of the Collector.of() method call.
+    // </editor-fold>
 
     /**
      * Given a string, split it into a list of strings consisting of
@@ -247,6 +270,12 @@ public class N_Challenges {
 
         assertThat(result).containsExactly("aaaaa", "bb", "cccc", "d", "eeeeee", "aaa", "fff");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // One possibility is a two-pass approach: one pass to gather data about
+    // the boundaries between the runs, and the second to create the substrings
+    // based on output from the first.
+    // </editor-fold>
 
     /**
      * Given a parallel stream of strings, collect them into a collection in reverse order.
@@ -271,6 +300,14 @@ public class N_Challenges {
 
         assertThat(result).containsExactlyElementsOf(expectedResult);
     }
+    // Hint 1:
+    // <editor-fold defaultstate="collapsed">
+    // ArrayDeque supports fast insertion at the front.
+    // </editor-fold>
+    // Hint 2:
+    // <editor-fold defaultstate="collapsed">
+    // Be careful with ordering of the arguments and results in the combiner.
+    // </editor-fold>
 
 
     /**
@@ -288,6 +325,11 @@ public class N_Challenges {
     OptionalInt majority(int[] array) {
         return null; // TODO
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // A two-pass approach may be called for here: a counting pass
+    // and a majority-finding pass.
+    // </editor-fold>
 
     @Test
     @Ignore

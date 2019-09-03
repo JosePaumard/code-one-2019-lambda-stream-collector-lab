@@ -66,6 +66,10 @@ public class P_HarderCollectors {
         assertThat(result.get(10)).containsExactly("contracted", "niggarding");
         assertThat(result.get(11)).containsExactly("substantial");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You can check the Collectors.groupingBy() collector.
+    // </editor-fold>
 
 
     /**
@@ -96,6 +100,10 @@ public class P_HarderCollectors {
         assertThat(result.get(10)).isEqualTo(2L);
         assertThat(result.get(11)).isEqualTo(1L);
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You can check the Collectors.groupingBy() collector. Then choose the right downstream collector.
+    // </editor-fold>
 
 
     /**
@@ -121,14 +129,17 @@ public class P_HarderCollectors {
         assertThat(result.get("thy")).isEqualTo(4L);
         assertThat(result.get("self")).isEqualTo(3L);
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You can first flat map this stream, without removing the doubles.
+    // You can then check the Collectors.groupingBy() collector. Then choose the right downstream collector.
+    // </editor-fold>
 
     /**
      * Gather all the letters used to write the Sonnet in lower case, and find one of the least used.
      * <p/>
      * Remember to use the BufferedReader named "reader" that has already been
      * opened for you.
-     * <p/>
-     * You can use a variant of the function created for K_SimpleStreams.simpleStream10().
      */
     @Test
     @Ignore
@@ -138,14 +149,18 @@ public class P_HarderCollectors {
 
         assertThat(leastUsedLetter).isIn("v", "k");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You need to use all the techniques seen so far to solve this exercise: flatMap, groupingBy,
+    // then transform the resulting map in a stream of Map.Entry key / value pairs so that you can further
+    // process it.
+    // </editor-fold>
 
     /**
      * Gather all the letters used to write the Sonnet in lower case, and find all the least used in a list.
      * <p/>
      * Remember to use the BufferedReader named "reader" that has already been
      * opened for you.
-     * <p/>
-     * You can use a variant of the function created for K_SimpleStreams.simpleStream10().
      */
     @Test
     @Ignore
@@ -156,6 +171,11 @@ public class P_HarderCollectors {
         assertThat(leastUsedLetters).hasSize(2);
         assertThat(leastUsedLetters).contains("v", "k");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // Again use the same kind of techniques as in the previous examples. Remember that you can invert a map
+    // to find all the minimums of a distribution.
+    // </editor-fold>
 
 
     /**
@@ -185,6 +205,10 @@ public class P_HarderCollectors {
         assertThat(result.get("t").get(3).toString()).isEqualTo("[the, thy, thy, thy, too, the, the, thy, the, the, the]");
         assertThat(result.get("w").get(5).toString()).isEqualTo("[where, waste, world]");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You can provide a downstream collector to the groupingBy(), which is itself another groupingBy().
+    // </editor-fold>
 
 
     /**
@@ -204,6 +228,10 @@ public class P_HarderCollectors {
         assertEquals(516, sumEvens);
         assertEquals(614, sumOdds);
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You can check the Collectors.partitioningBy() collector.
+    // </editor-fold>
 
 
 // ========================================================
