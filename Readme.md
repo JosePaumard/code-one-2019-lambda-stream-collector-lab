@@ -67,4 +67,4 @@ Then you need to modify the line where the `// TODO` mark is found so that the t
 
 If you run this test it should be green, so you can move to the next one. 
 
-There are 124 tests in the lab, enough to keep you busy for several hours. Good luck!
+There are 126 tests in the lab, enough to keep you busy for several hours. Good luck!
