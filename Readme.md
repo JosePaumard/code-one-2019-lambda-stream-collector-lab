@@ -4,9 +4,11 @@ You are are currently on the master branch on this repository. This repository c
 
 For instance, the branch for Java 10 and Eclipse is called `Java10-Eclipse`. 
 
-From this, you should check out the right branch for you, and check the instructions for that branch. 
+From this, you should check out the right branch for you, and check the instructions for that branch. See the detailed description of the lab on that branch. Some instructions are specific to the IDE you are using. 
 
-The lab is almost the same on all the branches. Several questions have been removed from the Java 8 branch, since they rely on API added in Java 9 or later.   
+The lab is almost the same on all the branches. Several questions have been removed from the Java 8 branch, since they rely on API added in Java 9 or later.  
+
+There is a PDF file called `Cheatsheet.pdf` that you can check for the useful information it contains about the patterns, classes and methods you are going to need in this lab. Ultimately, you should check the Javadoc.  
 
 This is a lab created for Oracle Code One 2019. It is a Maven project, with the following content in the `test/java` folder:
 
@@ -48,4 +50,4 @@ Then you need to modify the line where the `// TODO` mark is found so that the t
 
 If you run this test it should be green, so you can move to the next one. 
 
-There are 124 tests in the lab, enough to keep you busy for several hours. Good luck!
+Depending on the branch you are looking at, there are up to 126 exercises in the lab, enough to keep you busy for several hours. Good luck!
