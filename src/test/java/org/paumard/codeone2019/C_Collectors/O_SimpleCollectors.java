@@ -47,6 +47,9 @@ public class O_SimpleCollectors {
 
         assertThat(count).isEqualTo(10L);
     }
+    /* Hint:
+     * You can check the Collectors.counting() collector.
+     */
 
     /**
      * Compute the max element of that list, in the alphabetical order.
@@ -63,6 +66,9 @@ public class O_SimpleCollectors {
 
         assertThat(max).isEqualTo("two");
     }
+    /* Hint:
+     * You can check the Collectors.maxBy() collector.
+     */
 
     /**
      * Compute the min length of the elements of that list.
@@ -79,6 +85,9 @@ public class O_SimpleCollectors {
 
         assertThat(minLength).isEqualTo(3);
     }
+    /* Hint:
+     * You can check the Collectors.minBy() collector.
+     */
 
     /**
      * Compute the average length of the elements of that list.
@@ -95,6 +104,9 @@ public class O_SimpleCollectors {
 
         assertThat(averageLength).isEqualTo(3.9d);
     }
+    /* Hint:
+     * You can check the Collectors.averagingXXX() collectors and choose the right one.
+     */
 
     /**
      * Compute the sum of the elements of that list.
@@ -110,6 +122,9 @@ public class O_SimpleCollectors {
 
         assertThat(sum).isEqualTo(45);
     }
+    /* Hint:
+     * You can check the Collectors.summingXXX() collectors and choose the right one.
+     */
 
     /**
      * Concatenate the elements of that list in a String, separated by a space.
@@ -126,4 +141,7 @@ public class O_SimpleCollectors {
 
         assertThat(result).isEqualTo("one two three four five six seven eight nine ten");
     }
+    /* Hint:
+     * You can check the Collectors.joining() collector.
+     */
 }

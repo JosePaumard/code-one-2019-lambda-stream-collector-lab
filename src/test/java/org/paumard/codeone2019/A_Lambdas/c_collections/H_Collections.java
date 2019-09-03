@@ -45,4 +45,7 @@ public class H_Collections {
         assertThat(list).hasSize(2);
         assertThat(list).contains("alfa", "echo");
     }
+    /* Hint:
+     * Check the default methods of java.util.Collection.
+     */
 }
