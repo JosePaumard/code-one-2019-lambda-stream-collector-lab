@@ -94,6 +94,9 @@ public class B_Consumers {
         cons.accept(sb);
         assertThat(sb.toString()).isEqualTo("(Hello)");
     }
+    /* Hint:
+     * see java.util.function.Consumer.andThen()
+     */
 
     /**
      * Write a lambda expression that adds the given string to the
@@ -110,6 +113,10 @@ public class B_Consumers {
 
         assertThat(strings).containsExactly("one", "two", "three", "four");
     }
+    /* Hint:
+     * You can pop up the menu over the "light bulb" icon in the left margin. This menu
+     * has an option to convert the lambda to a method reference.
+     */
 
     /**
      * Write a lambda expression that adds the given key and value to the
@@ -130,4 +137,8 @@ public class B_Consumers {
         assertThat(map).containsKeys(1, 2, 3, 4);
         assertThat(map.get(4)).isEqualTo("four");
     }
+    /* Hint:
+     * You can pop up the menu over the "light bulb" icon in the left margin. This menu
+     * has an option to convert the lambda to a method reference.
+     */
 }
