@@ -45,4 +45,8 @@ public class H_Collections {
         assertThat(list).hasSize(2);
         assertThat(list).contains("alfa", "echo");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // Check the default methods of java.util.Collection.
+    // </editor-fold>
 }

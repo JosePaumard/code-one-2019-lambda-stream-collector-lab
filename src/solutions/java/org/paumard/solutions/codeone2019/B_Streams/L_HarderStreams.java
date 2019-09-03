@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.Comparator.naturalOrder;
@@ -113,7 +114,7 @@ public class L_HarderStreams {
                 "alfa", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel");
 
         Function<String, Stream<String>> wordToLetters =
-                word -> word.chars().mapToObj(c -> (char)c).map(Object::toString);
+                word -> word.chars().filter(Character::isLetter).mapToObj(c -> (char)c).map(Object::toString);
 
         List<String> result = input.stream()
                 .flatMap(wordToLetters)
@@ -126,10 +127,9 @@ public class L_HarderStreams {
     /**
      * Collect all the words from the text file into a list.
      * <p/>
-     * Remember to use the BufferedReader named "reader" that has already been
-     * opened for you.
      * Use the regular expression Pattern SPLIT_PATTERN to split a string into words, and use
      * Pattern.splitAsStream(String) to do the splitting. SPLIT_PATTERN is defined at the bottom of this file.
+     * <p/>
      * As before, use the BufferedReader variable named "reader" that has been set up for you to read from
      * the text file.
      */
@@ -188,6 +188,9 @@ public class L_HarderStreams {
      * Read the words from the text file, and create a list containing the words
      * of length 8 or longer, converted to lower case, and sorted reverse alphabetically.
      * (Same as above except for reversed sort order.)
+     * <p/>
+     * Remember to use the BufferedReader named "reader" that has already been
+     * opened for you.
      */
     @Test
     public void l_harderStream08() {
@@ -240,6 +243,24 @@ public class L_HarderStreams {
                         "fairest", "feed'st", "glutton", "light's", "thereby", "world's", "beauty's",
                         "increase", "ornament", "abundance", "creatures", "contracted", "niggarding",
                         "substantial"));
+    }
+
+    /**
+     * Select the list of words from the input list whose length is greater than
+     * the word's position in the list (starting from zero) .
+     */
+    @Test
+    public void l_harderStream10() {
+        List<String> input = Arrays.asList(
+                "alfa", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel");
+
+        List<String> result =
+                IntStream.range(0, input.size())
+                        .filter(pos -> input.get(pos).length() > pos)
+                        .mapToObj(pos -> input.get(pos))
+                        .collect(Collectors.toList());
+
+        assertThat(result).containsExactly("alfa", "bravo", "charlie", "delta", "foxtrot");
     }
 
 

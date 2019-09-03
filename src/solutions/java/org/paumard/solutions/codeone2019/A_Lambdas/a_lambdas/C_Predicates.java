@@ -60,15 +60,12 @@ public class C_Predicates {
 
     /**
      * Create a predicate that returns true when the given String
-     * is non-null. Try to use the predicate you wrote
-     * for c_predicate1()
+     * is non-null.
      */
     @Test
     public void c_predicate03() {
 
-        Predicate<String> pred01 = Objects::isNull;
-
-        Predicate<String> pred = pred01.negate();
+        Predicate<String> pred = Objects:: nonNull;
 
         assertTrue(pred.test(""));
         assertFalse(pred.test(null));
@@ -77,7 +74,7 @@ public class C_Predicates {
     /**
      * Create a predicate that returns true when the given String
      * is null or empty. Try to use the predicates you wrote
-     * for c_predicate1() c_predicate2()
+     * for c_predicate01() and c_predicate02()
      */
     @Test
     public void c_predicate04() {
@@ -95,8 +92,8 @@ public class C_Predicates {
     /**
      * Create a predicate that returns true when the given String
      * is non-null and non-empty. You can use the predicates you
-     * wrote for c_predicate1() c_predicate2() or the one
-     * you wrote for c_predicate4()
+     * wrote for c_predicate01() and c_predicate02(), and the one
+     * you wrote for c_predicate04()
      */
     @Test
     public void c_predicate05() {
@@ -137,5 +134,20 @@ public class C_Predicates {
         assertFalse(equalsError.test("Hello"));
         assertTrue(equalsError.test("ERROR"));
         assertFalse(equalsError.test(null));
+    }
+
+    /**
+     * Create a predicate that is true if the provided string is different from ERROR.
+     * Try writing it using the previous predicate.
+     */
+    @Test
+    public void c_predicate08() {
+
+        Predicate<String> equalsError = "ERROR"::equals;
+        Predicate<String> nonEqualsError = equalsError.negate();
+
+        assertTrue(nonEqualsError.test("Hello"));
+        assertFalse(nonEqualsError.test("ERROR"));
+        assertTrue(nonEqualsError.test(null));
     }
 }
