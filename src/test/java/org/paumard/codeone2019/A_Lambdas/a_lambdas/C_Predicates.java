@@ -39,11 +39,17 @@ public class C_Predicates {
     @Ignore
     public void c_predicate01() {
 
-        Predicate<String> pred = (String s) -> s == null;
+        Predicate<String> pred = null; // TODO
 
         assertTrue(pred.test(null));
         assertFalse(pred.test(""));
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // This method reference is to be found in the Objects factory class.
+    // You can also pop up the menu over the "light bulb" icon in the left margin. This menu
+    // has an option to convert the lambda to a method reference.
+    // </editor-fold>
 
     /**
      * Write a lambda expression that is a predicate
@@ -54,11 +60,16 @@ public class C_Predicates {
     @Ignore
     public void c_predicate02() {
 
-        Predicate<String> pred = (String s) -> s.isEmpty(); // TODO
+        Predicate<String> pred = null; // TODO
 
         assertTrue(pred.test(""));
         assertFalse(pred.test("a"));
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You can pop up the menu over the "light bulb" icon in the left margin. This menu
+    // has an option to convert the lambda to a method reference.
+    // </editor-fold>
 
     /**
      * Create a predicate that returns true when the given String
@@ -74,11 +85,15 @@ public class C_Predicates {
         assertTrue(pred.test(""));
         assertFalse(pred.test(null));
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // see java.util.function.Predicate.negate()
+    // </editor-fold>
 
     /**
      * Create a predicate that returns true when the given String
      * is null or empty. Try to use the predicates you wrote
-     * for c_predicate01() c_predicate02()
+     * for c_predicate01() and c_predicate02()
      */
     @Test
     @Ignore
@@ -90,11 +105,15 @@ public class C_Predicates {
         assertTrue(pred.test(null));
         assertFalse(pred.test("Hello"));
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // see java.util.function.Predicate.or()
+    // </editor-fold>
 
     /**
      * Create a predicate that returns true when the given String
      * is non-null and non-empty. You can use the predicates you
-     * wrote for c_predicate01() c_predicate02() or the one
+     * wrote for c_predicate01() and c_predicate02(), and the one
      * you wrote for c_predicate04()
      */
     @Test
@@ -107,6 +126,10 @@ public class C_Predicates {
         assertFalse(pred.test(null));
         assertTrue(pred.test("Hello"));
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // see java.util.function.Predicate.or() and java.util.function.Predicate.negate()
+    // </editor-fold>
 
     /**
      * Write a lambda expression that is a predicate
@@ -137,4 +160,9 @@ public class C_Predicates {
         assertTrue(equalsError.test("ERROR"));
         assertFalse(equalsError.test(null));
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You can pop up the menu over the "light bulb" icon in the left margin. This menu
+    // has an option to convert the lambda to a method reference.
+    // </editor-fold>
 }

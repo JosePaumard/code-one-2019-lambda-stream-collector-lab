@@ -55,6 +55,10 @@ public class M_Reductions {
 
         assertThat(sum).isEqualTo(55);
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You can use a factory method from IntStream then the sum() method.
+    // </editor-fold>
 
     /**
      * Compute the factorial of 21. This number is quite large.
@@ -67,6 +71,12 @@ public class M_Reductions {
 
         assertThat(result).isEqualTo(new BigInteger("51090942171709440000"));
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // You can use a factory method from Stream then the Stream.reduce() method.
+    // Check the different versions of this reduce() method.
+    // Check carefully the role of the first parameter you need to pass to the reduce() method.
+    // </editor-fold>
 
     /**
      * Given a a list of Consumer, create a single consumer that will pass the
@@ -91,6 +101,11 @@ public class M_Reductions {
 
         assertThat(sb.toString()).isEqualTo("Hello123456789");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // Even a list of Consumer can be streamed and reduced!
+    // Check the Consumer.andThen() method.
+    // </editor-fold>
 
     /**
      * Given a a list of Predicates, create a single predicate that will be true if one predicate of the list
@@ -114,6 +129,11 @@ public class M_Reductions {
         assertThat(predicate.test("Hello 01")).isTrue();
         assertThat(predicate.test("Hello")).isFalse();
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // Even a list of Predicate can be streamed and reduced!
+    // Check the Predicate.or() method.
+    // </editor-fold>
 
     /**
      * Get the last word in the text file.
@@ -129,6 +149,10 @@ public class M_Reductions {
 
         assertThat(result).isEqualTo("thee");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // A cunning use of the Stream.reduce() method!
+    // </editor-fold>
 
 
 // ========================================================

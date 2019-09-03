@@ -77,7 +77,7 @@ public class C_Predicates {
     /**
      * Create a predicate that returns true when the given String
      * is null or empty. Try to use the predicates you wrote
-     * for c_predicate1() c_predicate2()
+     * for c_predicate01() and c_predicate02()
      */
     @Test
     public void c_predicate04() {
@@ -95,8 +95,8 @@ public class C_Predicates {
     /**
      * Create a predicate that returns true when the given String
      * is non-null and non-empty. You can use the predicates you
-     * wrote for c_predicate1() c_predicate2() or the one
-     * you wrote for c_predicate4()
+     * wrote for c_predicate01() and c_predicate02(), and the one
+     * you wrote for c_predicate04()
      */
     @Test
     public void c_predicate05() {

@@ -150,8 +150,6 @@ public class P_HarderCollectors {
      * <p/>
      * Remember to use the BufferedReader named "reader" that has already been
      * opened for you.
-     * <p/>
-     * You can use a variant of the function created for K_SimpleStreams.simpleStream10().
      */
     @Test
     public void o_harderCollector04() {
@@ -180,8 +178,6 @@ public class P_HarderCollectors {
      * <p/>
      * Remember to use the BufferedReader named "reader" that has already been
      * opened for you.
-     * <p/>
-     * You can use a variant of the function created for K_SimpleStreams.simpleStream10().
      */
     @Test
     public void o_harderCollector05() {
