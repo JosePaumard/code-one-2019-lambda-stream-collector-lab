@@ -155,4 +155,8 @@ public class C_Predicates {
         assertTrue(equalsError.test("ERROR"));
         assertFalse(equalsError.test(null));
     }
+    /* Hint:
+     * You can pop up the menu over the "light bulb" icon in the left margin. This menu
+     * has an option to convert the lambda to a method reference.
+     */
 }
