@@ -30,7 +30,6 @@ public class J_Maps {
     /**
      * Given a map whose keys are Integers and whose values are Strings,
      * set each value to upper case.
-     * You can check the Map.replaceAll() method.
      */
     @Test
     public void j_map01() {
@@ -53,7 +52,6 @@ public class J_Maps {
      * This is a problem, because if we call get() on a key that isn't present, it returns
      * null, and we need to add checks to protect against NullPointerException.
      * Write code to ensure that all missing keys are mapped to the empty string.
-     * You can check the Map.putIfAbsent() method.
      */
     @Test
     public void j_map02() {
@@ -85,7 +83,6 @@ public class J_Maps {
      * In the previous example, we added map entries that had a default value.
      * We've now determined that's incorrect, and we want to undo that. This
      * time, we want to remove the entry if the value is the empty string.
-     * You can check one of the Map.remove() method.
      */
     @Test
     public void j_map03() {
@@ -116,7 +113,6 @@ public class J_Maps {
      * Instead of removing entries whose value is the empty string, we want
      * to replace the empty-string values with a value that's the key itself.
      * Write the code to do that.
-     * You can check one of the Map.replace() method.
      */
     @Test
     public void j_map04() {
@@ -150,7 +146,6 @@ public class J_Maps {
      * are present, we want to convert the value to upper case; and for keys
      * that are not present, we want to add an entry where the value is the
      * same as the key.
-     * You can check the Map.compute() method.
      */
     @Test
     public void j_map05() {
@@ -181,7 +176,6 @@ public class J_Maps {
      * with values that are the empty string. This time, we want to convert
      * the non-empty values to upper case, but we want to remove the entries
      * for which the values are the empty string.
-     * You can check the Map.compute() method.
      */
     @Test
     public void j_map06() {
@@ -210,7 +204,6 @@ public class J_Maps {
     /**
      * Given a list of words, populate a map whose keys are the lengths of
      * each word, and whose values are list of words with that length.
-     * You can check the Map.computeIfAbsent() method.
      */
     @Test
     public void j_map07() {
@@ -239,7 +232,6 @@ public class J_Maps {
      * s -> 3 -> {six}
      * 5 -> {seven}
      * etc...
-     * You can check the Map.computeIfAbsent() method.
      */
     @Test
     public void j_map08() {
@@ -276,7 +268,6 @@ public class J_Maps {
     /**
      * Given a list of words, populate a map whose keys are the lengths of each word, and whose values
      * the concatenation of words with that length, separated by a space.
-     * You can check the Map.merge() method.
      */
     @Test
     public void j_map09() {
@@ -306,7 +297,6 @@ public class J_Maps {
      * s -> 3 -> "six"
      * 5 -> "seven"
      * etc...
-     * You can check the Map.computeIfAbsent() and the Map.merge() methods.
      */
     @Test
     public void j_map10() {

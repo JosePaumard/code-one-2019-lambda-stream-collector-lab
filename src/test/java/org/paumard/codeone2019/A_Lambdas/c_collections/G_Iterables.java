@@ -52,4 +52,7 @@ public class G_Iterables {
         assertThat(strings).hasSize(3);
         assertThat(strings).contains("alfanew", "bravonew", "charlienew");
     }
+    /* Hint:
+     * Check the default methods of java.lang.Iterable.
+     */
 }
