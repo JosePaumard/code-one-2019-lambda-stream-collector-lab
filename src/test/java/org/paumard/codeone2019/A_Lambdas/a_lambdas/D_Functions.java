@@ -43,6 +43,10 @@ public class D_Functions {
 
         assertThat(func.apply("abc")).isEqualTo("ABC");
     }
+    /* Hint:
+     * You can pop up the menu over the "light bulb" icon in the left margin. This menu
+     * has an option to convert the lambda to a method reference.
+     */
 
     /**
      * Write a lambda expression that wraps the given
@@ -70,6 +74,10 @@ public class D_Functions {
         assertThat(func.apply("")).isEqualTo(0);
         assertThat(func.apply("Hello!")).isEqualTo(6);
     }
+    /* Hint:
+     * You can pop up the menu over the "light bulb" icon in the left margin. This menu
+     * has an option to convert the lambda to a method reference.
+     */
 
     /**
      * Write a lambda expression that returns an empty String
@@ -85,6 +93,9 @@ public class D_Functions {
         assertThat(func.apply("")).isEqualTo("");
         assertThat(func.apply("Hello")).isEqualTo("Hello");
     }
+    /* Hint:
+     * You can use the ternary operator for this lambda.
+     */
 
     /**
      * Write a lambda expression that returns the length of the given
@@ -101,6 +112,9 @@ public class D_Functions {
         assertThat(func.apply("")).isEqualTo(0);
         assertThat(func.apply("Hello")).isEqualTo(5);
     }
+    /* Hint:
+     * See java.util.Function.andThen() or java.util.Function.compose()
+     */
 
     /**
      * Write a lambda expression that, given two strings, returns the result
@@ -131,6 +145,10 @@ public class D_Functions {
         assertThat(bifunc.apply("Hello world", "Hello")).isEqualTo(0);
         assertThat(bifunc.apply("Hello world", "world")).isEqualTo(6);
     }
+    /* Hint:
+     * You can pop up the menu over the "light bulb" icon in the left margin. This menu
+     * has an option to convert the lambda to a method reference.
+     */
 
     /**
      * Write a lambda expression that returns the index of

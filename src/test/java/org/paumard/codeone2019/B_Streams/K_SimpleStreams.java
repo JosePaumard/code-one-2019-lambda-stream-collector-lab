@@ -22,6 +22,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.DoubleStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -34,7 +35,6 @@ public class K_SimpleStreams {
     /**
      * Given a list of words, create an output list that contains the elements
      * converted to upper case.
-     * Use the collect(Collectors.toList()) pattern to create the output list.
      */
     @Test
     @Ignore
@@ -48,11 +48,15 @@ public class K_SimpleStreams {
         assertThat(result)
                 .containsExactly("ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN");
     }
+    /* Hint:
+     * Check the method Stream.map().
+     * To create a list you can collect the stream using the Stream.collect() method and
+     * a Collectors.toList() collector.
+     */
 
     /**
      * Given a list of words, create an output list that contains
      * only the odd-length words, converted to upper case.
-     * Use the collect(Collectors.toList()) pattern to create the output list.
      */
     @Test
     @Ignore
@@ -66,11 +70,13 @@ public class K_SimpleStreams {
         assertThat(result)
                 .containsExactly("ONE", "TWO", "THREE", "SIX", "SEVEN", "EIGHT", "TEN");
     }
+    /* Hint:
+     * Check the method Stream.filter(). Try to add a step to the solution of the  previous exercise.
+     */
 
     /**
      * Given a list of words, create an output list that contains
      * only words from 3 to 8.
-     * Use the collect(Collectors.toList()) pattern to create the output list.
      */
     @Test
     @Ignore
@@ -84,11 +90,13 @@ public class K_SimpleStreams {
         assertThat(result)
                 .containsExactly("three", "four", "five", "six", "seven", "eight");
     }
+    /* Hint:
+     * Check the methods Stream.skip() and Stream.limit() then collect the resulting stream in a list.
+     */
 
     /**
      * Given a list of words, create an output list that contains
      * only the first letters of all the words, without any double.
-     * Use the collect(Collectors.toList()) pattern to create the output list.
      */
     @Test
     @Ignore
@@ -102,11 +110,13 @@ public class K_SimpleStreams {
         assertThat(result)
                 .containsExactly("o", "t", "f", "s", "e", "n");
     }
+    /* Hint:
+     * Check the method Stream.distinct().
+     */
 
     /**
      * Given a list of words, create an output list that contains
      * only the first letters of all the words, without any double, sorted in the alphabetical order.
-     * Use the collect(Collectors.toList()) pattern to create the output list.
      */
     @Test
     @Ignore
@@ -120,6 +130,9 @@ public class K_SimpleStreams {
         assertThat(result)
                 .containsExactly("e", "f", "n", "o", "s", "t");
     }
+    /* Hint:
+     * Use the result from the previous exercise. Check the method Stream.sorted().
+     */
 
     /**
      * Given a list of words, count the number of different lengths of those words.
@@ -136,10 +149,12 @@ public class K_SimpleStreams {
 
         assertThat(result).isEqualTo(3L);
     }
+    /* Hint:
+     * Use the same kind of technique as in the previous exercise. Check the method Stream.count().
+     */
 
     /**
      * Create the following list: {"+", "+", "+", "+", "+"}.
-     * Try to use a factory method from Stream.
      */
     @Test
     @Ignore
@@ -149,10 +164,12 @@ public class K_SimpleStreams {
 
         assertThat(result).containsExactly("+", "+", "+", "+", "+");
     }
+    /* Hint:
+     * Check the factory methods from the Stream interface.
+     */
 
     /**
      * Create the following list: {"+++", "++++", "+++++", "+++++++", "++++++++"}.
-     * Try to use a factory method from Stream.
      */
     @Test
     @Ignore
@@ -162,6 +179,9 @@ public class K_SimpleStreams {
 
         assertThat(result).containsExactly("+++", "++++", "+++++", "++++++", "+++++++");
     }
+    /* Hint:
+     * Check the factory methods from the Stream interface.
+     */
 
     /**
      * Create the following list: {1, 2, 3, 4, 5}.
@@ -175,6 +195,13 @@ public class K_SimpleStreams {
 
         assertThat(result).containsExactly(1, 2, 3, 4, 5);
     }
+    /* Hint:
+     * Check the factory methods from the primitive types Stream specialization.
+     * There are three primitive types specialization of the Stream interface:
+     * - IntStream
+     * - LongStream
+     * - DoubleStream
+     */
 
     /**
      * Create a function that take a String as a parameter and returns
@@ -189,4 +216,7 @@ public class K_SimpleStreams {
 
         assertThat(wordToLetters.apply("Hello world")).containsExactly("d", "e", "h", "l", "o", "r", "w");
     }
+    /* Hint:
+     * Check the String.chars() method. Take a close look at what it returns exactly.
+     */
 }

@@ -19,7 +19,10 @@ package org.paumard.codeone2019.A_Lambdas.d_maps;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -31,7 +34,6 @@ public class J_Maps {
     /**
      * Given a map whose keys are Integers and whose values are Strings,
      * set each value to upper case.
-     * You can check the Map.replaceAll() method.
      */
     @Test
     @Ignore
@@ -48,6 +50,9 @@ public class J_Maps {
         assertThat(map).containsKeys(1, 2, 3);
         assertThat(map).containsValues("ALFA", "BRAVO", "CHARLIE");
     }
+    /* Hint:
+     * Use Map.replaceAll().
+     */
 
     /**
      * For some reason the provided map doesn't have mappings for all the keys.
@@ -74,21 +79,23 @@ public class J_Maps {
 
         assertThat(map).hasSize(7);
         assertThat(map)
-                .contains(new AbstractMap.SimpleEntry<>("a", "alfa"))
-                .contains(new AbstractMap.SimpleEntry<>("b", "bravo"))
-                .contains(new AbstractMap.SimpleEntry<>("c", "charlie"))
-                .contains(new AbstractMap.SimpleEntry<>("d", "delta"))
-                .contains(new AbstractMap.SimpleEntry<>("e", ""))
-                .contains(new AbstractMap.SimpleEntry<>("f", ""))
-                .contains(new AbstractMap.SimpleEntry<>("g", ""));
+                .contains(Map.entry("a", "alfa"))
+                .contains(Map.entry("b", "bravo"))
+                .contains(Map.entry("c", "charlie"))
+                .contains(Map.entry("d", "delta"))
+                .contains(Map.entry("e", ""))
+                .contains(Map.entry("f", ""))
+                .contains(Map.entry("g", ""));
     }
+    /* Hint:
+     * Use Map.putIfAbsent().
+     */
 
 
     /**
      * In the previous example, we added map entries that had a default value.
      * We've now determined that's incorrect, and we want to undo that. This
      * time, we want to remove the entry if the value is the empty string.
-     * You can check one of the Map.remove() method.
      */
     @Test
     @Ignore
@@ -109,18 +116,20 @@ public class J_Maps {
 
         assertThat(map).hasSize(4);
         assertThat(map)
-                .contains(new AbstractMap.SimpleEntry<>("a", "alfa"))
-                .contains(new AbstractMap.SimpleEntry<>("b", "bravo"))
-                .contains(new AbstractMap.SimpleEntry<>("c", "charlie"))
-                .contains(new AbstractMap.SimpleEntry<>("d", "delta"));
+                .contains(Map.entry("a", "alfa"))
+                .contains(Map.entry("b", "bravo"))
+                .contains(Map.entry("c", "charlie"))
+                .contains(Map.entry("d", "delta"));
     }
+    /* Hint:
+     * Use Map.remove().
+     */
 
     /**
      * We need another way to deal with the problem of the previous example.
      * Instead of removing entries whose value is the empty string, we want
      * to replace the empty-string values with a value that's the key itself.
      * Write the code to do that.
-     * You can check one of the Map.replace() method.
      */
     @Test
     @Ignore
@@ -141,21 +150,23 @@ public class J_Maps {
 
         assertThat(map).hasSize(7);
         assertThat(map)
-                .contains(new AbstractMap.SimpleEntry<>("a", "alfa"))
-                .contains(new AbstractMap.SimpleEntry<>("b", "bravo"))
-                .contains(new AbstractMap.SimpleEntry<>("c", "charlie"))
-                .contains(new AbstractMap.SimpleEntry<>("d", "delta"))
-                .contains(new AbstractMap.SimpleEntry<>("e", "e"))
-                .contains(new AbstractMap.SimpleEntry<>("f", "f"))
-                .contains(new AbstractMap.SimpleEntry<>("g", "g"));
+                .contains(Map.entry("a", "alfa"))
+                .contains(Map.entry("b", "bravo"))
+                .contains(Map.entry("c", "charlie"))
+                .contains(Map.entry("d", "delta"))
+                .contains(Map.entry("e", "e"))
+                .contains(Map.entry("f", "f"))
+                .contains(Map.entry("g", "g"));
     }
+    /* Hint:
+     * Use Map.replace().
+     */
 
     /**
      * We are still dealing with a map with missing entries. For entries that
      * are present, we want to convert the value to upper case; and for keys
      * that are not present, we want to add an entry where the value is the
      * same as the key.
-     * You can check the Map.compute() method.
      */
     @Test
     @Ignore
@@ -173,21 +184,23 @@ public class J_Maps {
 
         assertThat(map).hasSize(7);
         assertThat(map)
-                .contains(new AbstractMap.SimpleEntry<>("a", "ALFA"))
-                .contains(new AbstractMap.SimpleEntry<>("b", "BRAVO"))
-                .contains(new AbstractMap.SimpleEntry<>("c", "CHARLIE"))
-                .contains(new AbstractMap.SimpleEntry<>("d", "DELTA"))
-                .contains(new AbstractMap.SimpleEntry<>("e", "e"))
-                .contains(new AbstractMap.SimpleEntry<>("f", "f"))
-                .contains(new AbstractMap.SimpleEntry<>("g", "g"));
+                .contains(Map.entry("a", "ALFA"))
+                .contains(Map.entry("b", "BRAVO"))
+                .contains(Map.entry("c", "CHARLIE"))
+                .contains(Map.entry("d", "DELTA"))
+                .contains(Map.entry("e", "e"))
+                .contains(Map.entry("f", "f"))
+                .contains(Map.entry("g", "g"));
     }
+    /* Hint:
+     * Use Map.compute().
+     */
 
     /**
      * The map now has several entries, some with valid values, and some
      * with values that are the empty string. This time, we want to convert
      * the non-empty values to upper case, but we want to remove the entries
      * for which the values are the empty string.
-     * You can check the Map.compute() method.
      */
     @Test
     @Ignore
@@ -208,16 +221,18 @@ public class J_Maps {
 
         assertThat(map).hasSize(4);
         assertThat(map)
-                .contains(new AbstractMap.SimpleEntry<>("a", "ALFA"))
-                .contains(new AbstractMap.SimpleEntry<>("b", "BRAVO"))
-                .contains(new AbstractMap.SimpleEntry<>("c", "CHARLIE"))
-                .contains(new AbstractMap.SimpleEntry<>("d", "DELTA"));
+                .contains(Map.entry("a", "ALFA"))
+                .contains(Map.entry("b", "BRAVO"))
+                .contains(Map.entry("c", "CHARLIE"))
+                .contains(Map.entry("d", "DELTA"));
     }
+    /* Hint:
+     * Use Map.compute().
+     */
 
     /**
      * Given a list of words, populate a map whose keys are the lengths of
      * each word, and whose values are list of words with that length.
-     * You can check the Map.computeIfAbsent() method.
      */
     @Test
     @Ignore
@@ -233,10 +248,13 @@ public class J_Maps {
         assertThat(result).hasSize(3);
         assertThat(result).containsKeys(3, 4, 5);
         assertThat(result)
-                .contains(new AbstractMap.SimpleEntry<>(3, Arrays.asList("one", "two", "six", "ten")))
-                .contains(new AbstractMap.SimpleEntry<>(4, Arrays.asList("four", "five", "nine")))
-                .contains(new AbstractMap.SimpleEntry<>(5, Arrays.asList("three", "seven", "eight")));
+                .contains(Map.entry(3, List.of("one", "two", "six", "ten")))
+                .contains(Map.entry(4, List.of("four", "five", "nine")))
+                .contains(Map.entry(5, List.of("three", "seven", "eight")));
     }
+    /* Hint:
+     * Use Map.computeIfAbsent().
+     */
 
     /**
      * Given a list of words, populate a map whose keys are the first letter of each
@@ -247,7 +265,6 @@ public class J_Maps {
      * s -> 3 -> {six}
      * 5 -> {seven}
      * etc...
-     * You can check the Map.computeIfAbsent() method.
      */
     @Test
     @Ignore
@@ -263,25 +280,27 @@ public class J_Maps {
         assertThat(result).hasSize(6);
         assertThat(result).containsKeys("e", "f", "n", "o", "s", "t");
         assertThat(result.get("e"))
-                .contains(new AbstractMap.SimpleEntry<>(5, Arrays.asList("eight")));
+                .contains(Map.entry(5, List.of("eight")));
         assertThat(result.get("f"))
-                .contains(new AbstractMap.SimpleEntry<>(4, Arrays.asList("four", "five")));
+                .contains(Map.entry(4, List.of("four", "five")));
         assertThat(result.get("n"))
-                .contains(new AbstractMap.SimpleEntry<>(4, Arrays.asList("nine")));
+                .contains(Map.entry(4, List.of("nine")));
         assertThat(result.get("o"))
-                .contains(new AbstractMap.SimpleEntry<>(3, Arrays.asList("one")));
+                .contains(Map.entry(3, List.of("one")));
         assertThat(result.get("s"))
-                .contains(new AbstractMap.SimpleEntry<>(3, Arrays.asList("six")))
-                .contains(new AbstractMap.SimpleEntry<>(5, Arrays.asList("seven")));
+                .contains(Map.entry(3, List.of("six")))
+                .contains(Map.entry(5, List.of("seven")));
         assertThat(result.get("t"))
-                .contains(new AbstractMap.SimpleEntry<>(3, Arrays.asList("two", "ten")))
-                .contains(new AbstractMap.SimpleEntry<>(5, Arrays.asList("three")));
+                .contains(Map.entry(3, List.of("two", "ten")))
+                .contains(Map.entry(5, List.of("three")));
     }
+    /* Hint:
+     * Use Map.computeIfAbsent().
+     */
 
     /**
      * Given a list of words, populate a map whose keys are the lengths of each word, and whose values
      * the concatenation of words with that length, separated by a space.
-     * You can check the Map.merge() method.
      */
     @Test
     @Ignore
@@ -297,10 +316,13 @@ public class J_Maps {
         assertThat(result).hasSize(3);
         assertThat(result).containsKeys(3, 4, 5);
         assertThat(result)
-                .contains(new AbstractMap.SimpleEntry<>(3, "one two six ten"))
-                .contains(new AbstractMap.SimpleEntry<>(4, "four five nine"))
-                .contains(new AbstractMap.SimpleEntry<>(5, "three seven eight"));
+                .contains(Map.entry(3, "one two six ten"))
+                .contains(Map.entry(4, "four five nine"))
+                .contains(Map.entry(5, "three seven eight"));
     }
+    /* Hint:
+     * Use Map.merge().
+     */
 
     /**
      * Given a list of words, populate a map whose keys are the first letter of each
@@ -312,7 +334,6 @@ public class J_Maps {
      * s -> 3 -> "six"
      * 5 -> "seven"
      * etc...
-     * You can check the Map.computeIfAbsent() and the Map.merge() methods.
      */
     @Test
     @Ignore
@@ -328,19 +349,21 @@ public class J_Maps {
         assertThat(result).hasSize(6);
         assertThat(result).containsKeys("e", "f", "n", "o", "s", "t");
         assertThat(result.get("e"))
-                .contains(new AbstractMap.SimpleEntry<>(5, "eight"));
+                .contains(Map.entry(5, "eight"));
         assertThat(result.get("f"))
-                .contains(new AbstractMap.SimpleEntry<>(4, "four five"));
+                .contains(Map.entry(4, "four five"));
         assertThat(result.get("n"))
-                .contains(new AbstractMap.SimpleEntry<>(4, "nine"));
+                .contains(Map.entry(4, "nine"));
         assertThat(result.get("o"))
-                .contains(new AbstractMap.SimpleEntry<>(3, "one"));
+                .contains(Map.entry(3, "one"));
         assertThat(result.get("s"))
-                .contains(new AbstractMap.SimpleEntry<>(3, "six"))
-                .contains(new AbstractMap.SimpleEntry<>(5, "seven"));
+                .contains(Map.entry(3, "six"))
+                .contains(Map.entry(5, "seven"));
         assertThat(result.get("t"))
-                .contains(new AbstractMap.SimpleEntry<>(3, "two ten"))
-                .contains(new AbstractMap.SimpleEntry<>(5, "three"));
+                .contains(Map.entry(3, "two ten"))
+                .contains(Map.entry(5, "three"));
     }
-
+    /* Hint:
+     * Use Map.computeIfAbsent() and the Map.merge() methods.
+     */
 }

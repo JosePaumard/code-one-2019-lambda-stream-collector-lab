@@ -29,6 +29,8 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -55,6 +57,12 @@ public class L_HarderStreams {
 
         assertThat(count).isEqualTo(14);
     }
+    /* Hint 1:
+     * Use BufferedReader.lines() to get a stream of lines.
+     */
+    /* Hint 2:
+     * Use Stream.count().
+     */
 
     /**
      * Find the length of the longest line in the text file.
@@ -70,6 +78,13 @@ public class L_HarderStreams {
 
         assertThat(longestLength).isEqualTo(53);
     }
+    /* Hint 1:
+     * Use Stream.max() with a Comparator. Check the type of the returned object.
+     */
+    /* Hint 2:
+     * Use static methods on Comparator to help create a Comparator instance.
+     */
+
 
     /**
      * Find the longest line in the text file.
@@ -85,6 +100,16 @@ public class L_HarderStreams {
 
         assertThat(longestLine).isEqualTo("Feed'st thy light's flame with self-substantial fuel,");
     }
+    /* Hint 1:
+     * Use Stream.mapToInt() to convert a stream of objects to an IntStream.
+     */
+    /* Hint 2:
+     * Look at java.util.OptionalInt to get the result.
+     */
+    /* Hint 3:
+     * Think about the case where the OptionalInt might be empty
+     * (that is, where it has no value).
+     */
 
     /**
      * Select one of the longest words from the input list.
@@ -100,6 +125,12 @@ public class L_HarderStreams {
 
         assertThat(result).isIn("charlie", "foxtrot");
     }
+    /* Hint 1:
+     * Use Stream.max() with a Comparator.
+     */
+    /* Hint 2:
+     * Use static methods on Comparator to help create a Comparator instance.
+     */
 
     /**
      * Create a list of all the letters used in the following list, ordered in the alphabetical order
@@ -117,14 +148,19 @@ public class L_HarderStreams {
 
         assertThat(result).containsExactly("a", "b", "c", "d", "e", "f", "g", "h", "i", "l", "o", "r", "t", "v", "x");
     }
+    /* Hint 1:
+     * Use String.chars(). That should help you create a stream of streams.
+     */
+    /* Hint 2:
+     * A stream of streams can be made a stream using a flat map operation.
+     */
 
     /**
      * Collect all the words from the text file into a list.
      * <p/>
-     * Remember to use the BufferedReader named "reader" that has already been
-     * opened for you.
      * Use the regular expression Pattern SPLIT_PATTERN to split a string into words, and use
      * Pattern.splitAsStream(String) to do the splitting. SPLIT_PATTERN is defined at the bottom of this file.
+     * <p/>
      * As before, use the BufferedReader variable named "reader" that has been set up for you to read from
      * the text file.
      */
@@ -151,6 +187,9 @@ public class L_HarderStreams {
                         "Pity", "the", "world", "or", "else", "this", "glutton", "be",
                         "To", "eat", "the", "world's", "due", "by", "the", "grave", "and", "thee"));
     }
+    /* Hint:
+     * Use Stream.flatMap().
+     */
 
     /**
      * Read the words from the text file, and create a list containing the words
@@ -170,11 +209,20 @@ public class L_HarderStreams {
                         "abundance", "beauty's", "contracted", "creatures",
                         "increase", "niggarding", "ornament", "substantial"));
     }
+    /* Hint 1:
+     * Your starting point is the list created in the previous exercise.
+     */
+    /* Hint 2:
+     * Use the map() and filter() methods of the Stream interface.
+     */
 
     /**
      * Read the words from the text file, and create a list containing the words
      * of length 8 or longer, converted to lower case, and sorted reverse alphabetically.
      * (Same as above except for reversed sort order.)
+     * <p/>
+     * Remember to use the BufferedReader named "reader" that has already been
+     * opened for you.
      */
     @Test
     @Ignore
@@ -187,6 +235,9 @@ public class L_HarderStreams {
                         "substantial", "ornament", "niggarding", "increase",
                         "creatures", "contracted", "beauty's", "abundance"));
     }
+    /* Hint:
+     * Your can modify the code from the previous exercise.
+     */
 
     /**
      * Read words from the text file, and sort unique, lower-cased words by length,
@@ -217,6 +268,28 @@ public class L_HarderStreams {
                         "increase", "ornament", "abundance", "creatures", "contracted", "niggarding",
                         "substantial"));
     }
+    /* Hint:
+     * Your need to create the right comparator using the factory methods and the default methods
+     * from the Comparator interface.
+     */
+
+    /**
+     * Select the list of words from the input list whose length is greater than
+     * the word's position in the list (starting from zero) .
+     */
+    @Test
+    public void l_harderStream10() {
+        List<String> input = Arrays.asList(
+                "alfa", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel");
+
+        List<String> result = null; // TODO
+
+        assertThat(result).containsExactly("alfa", "bravo", "charlie", "delta", "foxtrot");
+    }
+    /* Hint:
+     * Instead of a stream of words (Strings), run an IntStream of indexes of
+     * the input list, using index values to get elements from the input list.
+     */
 
 
 // ========================================================
