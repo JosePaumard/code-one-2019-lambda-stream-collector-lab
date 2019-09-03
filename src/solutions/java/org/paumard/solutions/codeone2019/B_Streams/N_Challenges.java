@@ -436,8 +436,8 @@ public class N_Challenges {
 
         Function<Class<?>, Map<Boolean, Set<Class<?>>>> function =
                 clazz -> Stream.iterate(clazz, Objects::nonNull, superclass)
-                    .flatMap(flatMapper)
-                    .collect(collector);
+                        .flatMap(flatMapper)
+                        .collect(collector);
 
         Map<Boolean, Set<Class<?>>> result = function.apply(ArrayList.class);
 

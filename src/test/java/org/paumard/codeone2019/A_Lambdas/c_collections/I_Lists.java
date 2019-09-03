@@ -43,6 +43,10 @@ public class I_Lists {
 
         assertThat(strings).containsExactly("ALFA", "BRAVO", "CHARLIE", "DELTA", "ECHO", "FOXTROT");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // Use List.replaceAll() and try to pass a method reference.
+    // </editor-fold>
 
     /**
      * Replace every null value in the list with an empty String.
@@ -58,6 +62,10 @@ public class I_Lists {
 
         assertThat(strings).containsExactly("alfa", "", "charlie", "delta", "", "foxtrot");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // Use List.replaceAll().
+    // </editor-fold>
 
     /**
      * Sort the content of the list in the alphabetical order of the strings.
@@ -74,6 +82,10 @@ public class I_Lists {
 
         assertThat(strings).containsExactly("five", "four", "one", "six", "three", "two");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // Use List.sort().
+    // </editor-fold>
 
     /**
      * Sort the content of the list by the length of the strings. In case the length is the same,
@@ -91,4 +103,8 @@ public class I_Lists {
 
         assertThat(strings).containsExactly("one", "six", "two", "five", "four", "three");
     }
+    // Hint:
+    // <editor-fold defaultstate="collapsed">
+    // Use List.sort().
+    // </editor-fold>
 }
