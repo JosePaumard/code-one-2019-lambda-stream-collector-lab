@@ -6,6 +6,8 @@ Welcome to the Lambda/Streams Programming Laboratory! The goal of this lab is fo
 
 The lab is structured as a set of exercises in the form of JUnit tests. To complete each exercise, write some code that uses a lambda or new API that enables the test to pass.
 
+There is a PDF file called `Cheatsheet.pdf` that you can check for the useful information it contains about the patterns, classes and methods you are going to need in this lab. Ultimately, you should check the Javadoc.  
+
 #### How to use the lab
 
 This is the Java 9 branch for Eclipse. Use it with a version 9 of the JDK. 
