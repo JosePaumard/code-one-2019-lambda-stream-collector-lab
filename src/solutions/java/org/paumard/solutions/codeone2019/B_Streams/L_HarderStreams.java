@@ -262,11 +262,6 @@ public class L_HarderStreams {
 
         assertThat(result).containsExactly("alfa", "bravo", "charlie", "delta", "foxtrot");
     }
-    // Hint:
-    // <editor-fold defaultstate="collapsed">
-    // Instead of a stream of words (Strings), run an IntStream of indexes of
-    // the input list, using index values to get elements from the input list.
-    // </editor-fold>
 
 
 // ========================================================

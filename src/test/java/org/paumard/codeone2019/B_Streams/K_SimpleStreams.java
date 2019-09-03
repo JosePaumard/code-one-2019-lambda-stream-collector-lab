@@ -208,7 +208,7 @@ public class K_SimpleStreams {
     // There are three primitive types specialization of the Stream interface:
     // - IntStream
     // - LongStream
-    // - DoubleStream.
+    // - DoubleStream
     // </editor-fold>
 
     /**
