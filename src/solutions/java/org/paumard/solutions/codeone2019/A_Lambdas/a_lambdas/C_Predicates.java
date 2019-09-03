@@ -65,7 +65,7 @@ public class C_Predicates {
     @Test
     public void c_predicate03() {
 
-        Predicate<String> pred = Objects:: nonNull;
+        Predicate<String> pred = Objects::nonNull;
 
         assertTrue(pred.test(""));
         assertFalse(pred.test(null));
