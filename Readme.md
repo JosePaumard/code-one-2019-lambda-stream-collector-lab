@@ -1,11 +1,10 @@
 ### Oracle Code One 2019  Lambda Stream Collector Lab
 
-You are are currently on the master branch on this repository. You should switch to one of the following branch, following the version of Java you are using:
-- Java8
-- Java9
-- Java10
-- Java11
-- Java12
+You are are currently on the master branch on this repository. This repository contains branches for each version of Java from 8 to 12, and for two IDEs: Eclipse and IntelliJ. 
+
+For instance, the branch for Java 10 and Eclipse is called `Java10-Eclipse`. 
+
+From this, you should check out the right branch for you, and check the instructions for that branch. 
 
 The lab is almost the same on all the branches. Several questions have been removed from the Java 8 branch, since they rely on API added in Java 9 or later.   
 
