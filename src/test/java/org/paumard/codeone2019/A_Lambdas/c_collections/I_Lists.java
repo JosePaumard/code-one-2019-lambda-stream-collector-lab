@@ -43,6 +43,9 @@ public class I_Lists {
 
         assertThat(strings).containsExactly("ALFA", "BRAVO", "CHARLIE", "DELTA", "ECHO", "FOXTROT");
     }
+    /* Hint:
+     * Use List.replaceAll() and try to pass a method reference.
+     */
 
     /**
      * Replace every null value in the list with an empty String.
@@ -58,6 +61,9 @@ public class I_Lists {
 
         assertThat(strings).containsExactly("alfa", "", "charlie", "delta", "", "foxtrot");
     }
+    /* Hint:
+     * Use List.replaceAll().
+     */
 
     /**
      * Sort the content of the list in the alphabetical order of the strings.
@@ -74,6 +80,9 @@ public class I_Lists {
 
         assertThat(strings).containsExactly("five", "four", "one", "six", "three", "two");
     }
+    /* Hint:
+     * Use List.sort().
+     */
 
     /**
      * Sort the content of the list by the length of the strings. In case the length is the same,
@@ -91,4 +100,7 @@ public class I_Lists {
 
         assertThat(strings).containsExactly("one", "six", "two", "five", "four", "three");
     }
+    /* Hint:
+     * Use List.sort().
+     */
 }

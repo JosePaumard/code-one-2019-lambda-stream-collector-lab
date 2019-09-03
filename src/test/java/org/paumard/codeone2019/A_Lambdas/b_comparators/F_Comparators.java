@@ -52,6 +52,10 @@ public class F_Comparators {
         assertThat(compareByLength.compare("ONE", "SEVEN")).isLessThan(0);
         assertThat(compareByLength.compare("ONE", "TWO")).isEqualTo(0);
     }
+    /* Hint:
+     * Check the static factory methods of the Comparator interface.
+     * Try to pass a method reference to this method call.
+     */
 
     /**
      * Write a Comparator that compare instances of String using their length.
@@ -69,6 +73,12 @@ public class F_Comparators {
         assertThat(compareByLengthThenAlphabetical.compare("FOUR", "FIVE")).isGreaterThan(0);
         assertThat(compareByLengthThenAlphabetical.compare("EIGHT", "EIGHT")).isEqualTo(0);
     }
+    /* Hint:
+     * Use the previous comparator and check the default methods of the Comparator interface.
+     * See if some of them can chain comparators.
+     * Remember that String is comparable and see if you can create a Comparator that can
+     * compare Comparable objects usin their natural order.
+     */
 
     /**
      * Write a Comparator that compares instances of Person using their lastName.
@@ -83,6 +93,10 @@ public class F_Comparators {
         assertThat(compareByLastName.compare(paul, paul)).isEqualTo(0);
         assertThat(compareByLastName.compare(michael, jermaine)).isEqualTo(0);
     }
+    /* Hint:
+     * Check the static factory methods of the Comparator interface.
+     * Try to pass a method reference to this method call.
+     */
 
     /**
      * Write a Comparator that compares instances of Person using their
@@ -98,6 +112,11 @@ public class F_Comparators {
         assertThat(compareByLastNameThenFirstName.compare(paul, paul)).isEqualTo(0);
         assertThat(compareByLastNameThenFirstName.compare(michael, jermaine)).isGreaterThan(0);
     }
+    /* Hint:
+     * You need to use all the solutions you used in the previous examples:
+     * - creating comparators using factory methods
+     * - chaining comparators using default methods.
+     */
 
     /**
      * Write a Comparator that compares the people in the order reversed from
@@ -113,6 +132,10 @@ public class F_Comparators {
         assertThat(compareByLastNameThenFirstNameReversed.compare(paul, paul)).isEqualTo(0);
         assertThat(compareByLastNameThenFirstNameReversed.compare(michael, jermaine)).isLessThan(0);
     }
+    /* Hint:
+     * Use the previous comparator and check the default methods of the Comparator interface.
+     * See if it can be reversed.
+     */
 
     /**
      * Write a Comparator that compares the people in the same order than the
@@ -131,6 +154,10 @@ public class F_Comparators {
         assertThat(compareByLastNameThenFirstNameWithNull.compare(mick, null)).isLessThan(0);
         assertThat(compareByLastNameThenFirstNameWithNull.compare(null, mick)).isGreaterThan(0);
     }
+    /* Hint:
+     * Use the previous comparator and check the static methods of the Comparator interface.
+     * See if there are factory methods to handle null values.
+     */
 
     /**
      * Write a Comparator that compares two people by age.
@@ -146,6 +173,10 @@ public class F_Comparators {
         assertThat(compareByAge.compare(paul, paul)).isEqualTo(0);
         assertThat(compareByAge.compare(mick, jermaine)).isGreaterThan(0);
     }
+    /* Hint:
+     * Look for static methods on the Comparator interface that have primitive specializations.
+     */
+
 
     /**
      * Write a Comparator that compares two people using the fact that the Person
@@ -163,6 +194,9 @@ public class F_Comparators {
         assertThat(compare.compare(mick, jermaine)).isGreaterThan(0);
         assertThat(compare.compare(michael, jermaine)).isGreaterThan(0);
     }
+    /* Hint:
+     * Use a ternary operator (cond ? result1 : result2) instead of subtraction.
+     */
 
 
     /**
@@ -184,6 +218,11 @@ public class F_Comparators {
         assertThat(intCompare.applyAsInt(Integer.MIN_VALUE, Integer.MAX_VALUE)).isLessThan(0);
         assertThat(intCompare.applyAsInt(Integer.MAX_VALUE, Integer.MIN_VALUE)).isGreaterThan(0);
     }
+    /* Hint:
+     * Use a method reference to a static method on the Integer class.
+     * Checking the source code of this static method from the Integer class gives a hint of
+     * the problems raised by just subtracting integers to create comparators.
+     */
 
     /**
      * Write a method reference that compares two int values and returns an
@@ -202,6 +241,9 @@ public class F_Comparators {
         assertThat(intCompare.applyAsInt(Integer.MIN_VALUE, Integer.MAX_VALUE)).isLessThan(0);
         assertThat(intCompare.applyAsInt(Integer.MAX_VALUE, Integer.MIN_VALUE)).isGreaterThan(0);
     }
+    /* Hint:
+     * Use a method reference to a static method on the Double class.
+     */
 
     interface DoubleToIntBiFunction {
         int applyAsInt(double a, double b);
