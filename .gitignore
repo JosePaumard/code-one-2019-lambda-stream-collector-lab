@@ -1,3 +1,5 @@
+images/*-full.png
+images/*.xcf
 .idea/
 **/*.iml
 **/target/
