@@ -3,3 +3,4 @@ images/*.xcf
 .idea/
 **/*.iml
 **/target/
+*.bat
